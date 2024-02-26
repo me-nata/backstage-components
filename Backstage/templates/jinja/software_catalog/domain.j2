@@ -3,5 +3,5 @@
 {% block kindblock %}Domain{% endblock %}
 
 {% block specblock %}
-  owner: {{ owner | default('artist-relations-team') }}
+  owner: {{ owner | default('artist-relations-team', true) }}
 {% endblock %}

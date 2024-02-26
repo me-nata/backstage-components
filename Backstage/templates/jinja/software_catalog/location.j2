@@ -16,6 +16,6 @@
       {% endfor %}
   {% endif %}
   {% if presence %}
-    presence: {{ presence | default('required') }}
+    presence: {{ presence | default('required', true) }}
   {% endif %}
 {% endblock %}

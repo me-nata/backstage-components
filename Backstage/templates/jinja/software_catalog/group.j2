@@ -3,7 +3,7 @@
 {% block kindblock %}Group{% endblock %}
 
 {% block specblock %}
-  type: {{ type | default('team') }}
+  type: {{ type | default('team', true) }}
   {% if profile %}
     profile:
       {% if profile.name %}

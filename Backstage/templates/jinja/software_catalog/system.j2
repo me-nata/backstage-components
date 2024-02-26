@@ -3,7 +3,7 @@
 {% block kindblock %}System{% endblock %}
 
 {% block specblock %}
-  owner: {{ owner | default('artist-relations-team') }}
+  owner: {{ owner | default('artist-relations-team', true) }}
   {% if domain %}
     domain: {{ domain }}
   {% endif %}

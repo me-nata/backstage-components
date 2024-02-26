@@ -9,5 +9,5 @@
   {% if system %}
     system: {{ system }}
   {% endif %}
-  definition: {{ definition | default('') | to_yaml | indent(4) }}
+  definition: {{ definition | default('', true) | to_yaml | indent(4) }}
 {% endblock %}

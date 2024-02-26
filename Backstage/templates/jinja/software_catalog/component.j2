@@ -3,9 +3,9 @@
 {% block kindblock %}Component{% endblock %}
 
 {% block specblock %}
-  type: {{ type | default('service') }}
-  lifecycle: {{ lifecycle | default('production') }}
-  owner: {{ owner | default('artist-relations-team') }}
+  type: {{ type | default('service', true) }}
+  lifecycle: {{ lifecycle | default('production', true) }}
+  owner: {{ owner | default('artist-relations-team', true) }}
   {% if system %}
     system: {{ system }}
   {% endif %}

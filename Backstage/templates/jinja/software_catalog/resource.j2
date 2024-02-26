@@ -3,8 +3,8 @@
 {% block kindblock %}Resource{% endblock %}
 
 {% block specblock %}
-  owner: {{ owner | default('artist-relations-team') }}
-  type: {{ type | default('database') }}
+  owner: {{ owner | default('artist-relations-team', true) }}
+  type: {{ type | default('database', true) }}
   {% if system %}
     system: {{ system }}
   {% endif %}
