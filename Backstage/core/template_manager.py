@@ -20,3 +20,16 @@ class TemplateManager:
                 file.close()
 
         return rendered
+    
+    def stack(self, *args, save=''):
+        rendered = '---\n'
+        for instance in args:
+            rendered += self.match(instance)
+            rendered += '\n---\n'
+
+        if save != '':
+            with open(save, 'w') as file:
+                file.write(rendered)
+                file.close()
+
+        return rendered
