@@ -3,7 +3,7 @@ kind: {% block kindblock %}{% endblock %}
 metadata:
   name: {{ name }}
   {% if namespace %}namespace: {{ namespace }}{% endif %}
-  {% if title %}title: {{ title }} # "titulo" eh visual apenas{% endif %}
+  {% if title %}title: {{ title }} {% endif %}
   {% if description %}description: {{ description | to_yaml | indent(4) }}{% endif %}
   {% if labels %}
   labels:
