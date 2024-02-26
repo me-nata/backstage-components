@@ -2,7 +2,7 @@
 
 {% block kindblock %}User{% endblock %}
 
-{% block specblock -%}
+{% block specblock %}
   {% if profile %}
   profile:
     {% if profile.name %}name: {{ profile.name }}{% endif %}
@@ -14,5 +14,5 @@
     {% for group in memberOf -%}
       - {{ group }}
     {% endfor %}
-  {%- endif %}
+  {% endif %}
 {% endblock %}

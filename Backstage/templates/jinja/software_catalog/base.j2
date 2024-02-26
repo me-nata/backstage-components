@@ -2,33 +2,33 @@ apiVersion: backstage.io/v1alpha1
 kind: {% block kindblock %}{% endblock %}
 metadata:
   name: {{ name }}
-  {% if namespace -%}namespace: {{ namespace }}{% endif -%}
-  {% if title -%}title: {{ title }} # "titulo" eh visual apenas{% endif -%}
-  {% if description -%}description: {{ description | to_yaml | indent(4) }}{% endif -%}
-  {% if labels -%}
+  {% if namespace %}namespace: {{ namespace }}{% endif %}
+  {% if title %}title: {{ title }} # "titulo" eh visual apenas{% endif %}
+  {% if description %}description: {{ description | to_yaml | indent(4) }}{% endif %}
+  {% if labels %}
   labels:
-    {% for key, value in labels.items() -%}
+    {% for key, value in labels.items() %}
       {{ key | to_yaml | indent(4) }}: {{ value | to_yaml | indent(4) }}
-    {% endfor -%}
-  {% endif -%}
-  {% if annotations -%}
+    {% endfor %}
+  {% endif %}
+  {% if annotations %}
   annotations:
-    {% for key, value in annotations.items() -%}
+    {% for key, value in annotations.items() %}
       {{ key | to_yaml | indent(4) }}: {{ value | to_yaml | indent(4) }}
-    {% endfor -%}
-  {% endif -%}
-  {% if tags -%}
+    {% endfor %}
+  {% endif %}
+  {% if tags %}
   tags:
-    {% for tag in tags -%}
+    {% for tag in tags %}
       - {{ tag }}
-    {% endfor -%}
-  {% endif -%}
-  {% if links -%}
+    {% endfor %}
+  {% endif %}
+  {% if links %}
   links:
-    {% for link in links -%}
+    {% for link in links %}
       - {{ link | to_yaml | indent(4) }}
-    {% endfor -%}
+    {% endfor %}
   {% endif %}
 spec:
-  {%- block specblock -%}
-  {% endblock -%}
+  {%- block specblock %}
+  {% endblock %}
