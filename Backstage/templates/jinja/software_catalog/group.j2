@@ -1,0 +1,32 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}Group{% endblock %}
+
+{% block specblock %}
+  type: {{ type | default('team') }}
+  {% if profile %}
+    profile:
+      {% if profile.name %}
+        name: {{ profile.name }}
+      {% endif %}
+      {% if profile.email %}
+        email: {{ profile.email }}
+      {% endif %}
+      {% if profile.picture %}
+        picture: {{ profile.picture }}
+      {% endif %}
+  {% endif %}
+  {% if parent %}
+    parent: {{ parent }}
+  {% endif %}
+  children:
+    {% for child in children %}
+      - {{ child }}
+    {% endfor %}
+  {% if members %}
+    members:
+      {% for member in members %}
+        - {{ member }}
+      {% endfor %}
+  {% endif %}
+{% endblock %}

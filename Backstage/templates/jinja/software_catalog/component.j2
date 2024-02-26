@@ -1,0 +1,33 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}Component{% endblock %}
+
+{% block specblock %}
+  type: {{ type | default('service') }}
+  lifecycle: {{ lifecycle | default('production') }}
+  owner: {{ owner | default('artist-relations-team') }}
+  {% if system %}
+    system: {{ system }}
+  {% endif %}
+  {% if subcomponentOf %}
+    subcomponentOf: {{ subcomponentOf }}
+  {% endif %}
+  {% if providesApis %}
+    providesApis:
+      {% for api in providesApis %}
+        - {{ api }}
+      {% endfor %}
+  {% endif %}
+  {% if consumesApis %}
+    consumesApis:
+      {% for api in consumesApis %}
+        - {{ api }}
+      {% endfor %}
+  {% endif %}
+  {% if dependsOn %}
+    dependsOn:
+      {% for dependency in dependsOn %}
+        - {{ dependency }}
+      {% endfor %}
+  {% endif %}
+{% endblock %}

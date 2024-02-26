@@ -1,0 +1,18 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}User{% endblock %}
+
+{% block specblock -%}
+  {% if profile %}
+  profile:
+    {% if profile.name %}name: {{ profile.name }}{% endif %}
+    {% if profile.email %}email: {{ profile.email }}{% endif %}
+    {% if profile.picture %}picture: {{ profile.picture }}{% endif %}
+  {%- endif %}
+  {% if memberOf %}
+  memberOf: 
+    {% for group in memberOf -%}
+      - {{ group }}
+    {% endfor %}
+  {%- endif %}
+{% endblock %}

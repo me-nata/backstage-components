@@ -1,0 +1,21 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}Location{% endblock %}
+
+{% block specblock %}
+  {% if type %}
+    type: {{ type }}
+  {% endif %}
+  {% if target %}
+    target: {{ target }}
+  {% endif %}
+  {% if targets %}
+    targets:
+      {% for target_item in targets %}
+        - {{ target_item }}
+      {% endfor %}
+  {% endif %}
+  {% if presence %}
+    presence: {{ presence | default('required') }}
+  {% endif %}
+{% endblock %}

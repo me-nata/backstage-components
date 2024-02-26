@@ -1,0 +1,13 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}API{% endblock %}
+
+{% block specblock %}
+  type: {{ type | default('openapi') }}
+  lifecycle: {{ lifecycle | default('production') }}
+  owner: {{ owner | default('artist-relations-team') }}
+  {% if system %}
+    system: {{ system }}
+  {% endif %}
+  definition: {{ definition | default('') | to_yaml | indent(4) }}
+{% endblock %}

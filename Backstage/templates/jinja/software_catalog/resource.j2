@@ -1,0 +1,23 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}Resource{% endblock %}
+
+{% block specblock %}
+  owner: {{ owner | default('artist-relations-team') }}
+  type: {{ type | default('database') }}
+  {% if system %}
+    system: {{ system }}
+  {% endif %}
+  {% if dependsOn %}
+    dependsOn:
+      {% for dependency in dependsOn %}
+        - {{ dependency }}
+      {% endfor %}
+  {% endif %}
+  {% if dependencyOf %}
+    dependencyOf:
+      {% for dependency in dependencyOf %}
+        - {{ dependency }}
+      {% endfor %}
+  {% endif %}
+{% endblock %}

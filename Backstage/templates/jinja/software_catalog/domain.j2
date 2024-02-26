@@ -1,0 +1,7 @@
+{% extends 'base.j2' %}
+
+{% block kindblock %}Domain{% endblock %}
+
+{% block specblock %}
+  owner: {{ owner | default('artist-relations-team') }}
+{% endblock %}
